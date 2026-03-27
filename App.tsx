@@ -104,4 +104,17 @@ const styles = StyleSheet.create({
     color: "#fff",
     opacity: 0.9,
   },
+  rodape: {
+    marginTop: 24,
+    padding: 16,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderRadius: 12,
+  },
+  rodapeTexto: {
+    fontSize: 12,
+    color: "#fff",
+    textAlign: "center",
+    lineHeight: 18,
+    marginBottom: 4,
+  },
 });
