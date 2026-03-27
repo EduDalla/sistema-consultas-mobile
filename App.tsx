@@ -9,6 +9,7 @@ import { Especialidade } from "./src/types/especialidade";
 import { Paciente } from "./src/types/paciente";
 
 export default function App() {
+  // Dados base (simulando o que tínhamos no backend)
   const cardiologia: Especialidade = {
     id: 1,
     nome: "Cardiologia",
@@ -31,16 +32,18 @@ export default function App() {
     telefone: "(11) 98765-4321",
   };
 
+  // Estado da consulta
   const [consulta, setConsulta] = useState<Consulta>({
     id: 1,
     medico: medico1,
     paciente: paciente1,
-    data: new Date(2026, 2, 10),
+    data: new Date(2026, 2, 10), // 10/03/2026
     valor: 350,
     status: "agendada",
     observacoes: "Consulta de rotina",
   });
 
+  // Callbacks que o filho usa para comunicar a intenção de mudança ao pai
   function confirmarConsulta() {
     setConsulta({
       ...consulta,
@@ -60,11 +63,13 @@ export default function App() {
       <StatusBar style="light" />
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
+        {/* Cabeçalho */}
         <View style={styles.header}>
           <Text style={styles.titulo}>Sistema de Consultas</Text>
           <Text style={styles.subtitulo}>Consulta #{consulta.id}</Text>
         </View>
 
+        {/* O estado vive no App e o card apenas recebe dados e callbacks */}
         <ConsultaCard
           consulta={consulta}
           onConfirmar={confirmarConsulta}
@@ -82,7 +87,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 20,
-    paddingTop: 40,
+    paddingTop: 60,
   },
   header: {
     alignItems: "center",

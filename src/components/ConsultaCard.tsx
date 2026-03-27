@@ -66,20 +66,25 @@ export default function ConsultaCard({
       <View style={styles.acoes}>
         {consulta.status === "agendada" && (
           <>
-            <View style={styles.botaoContainer}>
-              <Button
-                title="Confirmar Consulta"
-                onPress={onConfirmar}
-                color="#4CAF50"
-              />
-            </View>
-            <View style={styles.botaoContainer}>
-              <Button
-                title="Cancelar Consulta"
-                onPress={onCancelar}
-                color="#F44336"
-              />
-            </View>
+            {onConfirmar && (
+              <View style={styles.botaoContainer}>
+                <Button
+                  title="Confirmar Consulta"
+                  onPress={onConfirmar}
+                  color="#4CAF50"
+                />
+              </View>
+            )}
+
+            {onCancelar && (
+              <View style={styles.botaoContainer}>
+                <Button
+                  title="Cancelar Consulta"
+                  onPress={onCancelar}
+                  color="#F44336"
+                />
+              </View>
+            )}
           </>
         )}
 
